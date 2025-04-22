@@ -1,14 +1,14 @@
 ### Steps to run this program:
 
 1) Project setup
-Reference - Run a [Temporal service](https://github.com/temporalio/samples-go/tree/main/#how-to-use).
 
 ```
-$ mkdir goproject
-$ cd goproject
-$ go mod init goproject/app 	# Initialize a Go project in that directory:
+$ mkdir temporal-hello
+$ cd temporal-hello
+$ go mod init temporal-hello/app 	# Initialize a Go project in that directory:
 $ go get go.temporal.io/sdk	# Install the Temporal SDK with go get:
 ```
+Create the required files in the above directory.
 
 1b)  Start the server 
 ```
@@ -24,3 +24,16 @@ go run helloworld/worker/main.go
 ```
 go run helloworld/starter/main.go
 ```
+
+3b) View the Workflow status & History from the Web UI console at http://localhost:8233/
+
+4) Simulate the error
+
+Return err message for activity return code
+```
+	// return "Hello " + name + "!", nil
+	return "Hello " + name + "!", fmt.Errorf("Error occurred in HelloActivity") // Simulate an error
+```
+
+
+4b) Web UI console will show activity still running and events shows the failures
