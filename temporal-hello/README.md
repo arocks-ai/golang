@@ -17,17 +17,17 @@ temporal server start-dev
 
 2) Start the worker
 ```
-go run helloworld/worker/main.go
+go run worker/main.go
 ```
 
 3) Start the client application
 ```
-go run helloworld/starter/main.go
+go run starter/main.go
 ```
 
 3b) View the Workflow status & History from the Web UI console at http://localhost:8233/
 
-4) Simulate the error
+4) Simulate the error by updating HelloActivity() activity inside app.go file
 
 Return err message for activity return code
 ```
